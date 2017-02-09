@@ -1,0 +1,75 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
+
+    sourceSets.main {
+        jniLibs.srcDir 'libs'
+        jni.srcDirs = [] //disable automatic ndk-build call
+    }
+
+
+    defaultConfig {
+        applicationId "org.appspot.apprtc"
+        minSdkVersion 21
+        targetSdkVersion 24
+
+        versionCode 13665
+        versionName "r13665"
+
+        testApplicationId "org.appspot.apprtc.test"
+        testInstrumentationRunner "android.test.InstrumentationTestRunner"
+
+//        ndk{
+//            moduleName "jniHello"
+//        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+//// add begin
+//android {
+//    sourceSets {
+//        main {
+//            jni.srcDirs = []
+//        }
+//    }
+//}
+//
+//
+//task ndkBuild(type: Exec, description: 'Compile JNI source via NDK') {
+//    def ndkDir = project.plugins.findPlugin('com.android.application').sdkHandler.getNdkFolder()
+//    commandLine "$ndkDir\\ndk-build.cmd ",
+//            'NDK_PROJECT_PATH=build\\intermediates\\ndk',
+//            'NDK_LIBS_OUT=src\\main\\JniLibs',
+//            'APP_BUILD_SCRIPT=src\\main\\jni\\Android.mk',
+//            'NDK_APPLICATION_MK=src\\main\\jni\\Application.mk'
+//}
+//
+//tasks.withType(JavaCompile) {
+//    compileTask -> compileTask.dependsOn ndkBuild
+//}
+//// add end
+
+dependencies {
+    compile files('libs/autobanh.jar')
+    compile files('libs/libjingle_peerconnection.jar')
+    //compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:design:24.2.0'
+    compile 'com.android.support:cardview-v7:24.2.0'
+    compile 'com.github.bumptech.glide:glide:3.6.0'
+    compile 'de.hdodenhof:circleimageview:1.3.0'
+    compile 'jp.wasabeef:glide-transformations:2.0.1'
+    compile project(':openCVLibrary310')
+}

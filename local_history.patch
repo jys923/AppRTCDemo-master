@@ -1,0 +1,42 @@
+Index: app/src/main/java/org/appspot/apprtc/ConnectActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/org/appspot/apprtc/ConnectActivity.java	(revision )
++++ app/src/main/java/org/appspot/apprtc/ConnectActivity.java	(revision )
+@@ -33,7 +33,6 @@
+ import android.widget.ImageButton;
+ import android.widget.ListView;
+ import android.widget.TextView;
+-import android.widget.Toast;
+ 
+ import org.json.JSONArray;
+ import org.json.JSONException;
+@@ -145,9 +144,9 @@
+     // If an implicit VIEW intent is launching the app, go directly to that URL.
+     final Intent intent = getIntent();
+     //Intent getintent = getIntent();
+-    String name = intent.getStringExtra("name");
+-    Toast toast = Toast.makeText(ConnectActivity.this, name,Toast.LENGTH_SHORT);
+-    toast.show();
++//    String name = intent.getStringExtra("name");
++//    Toast toast = Toast.makeText(ConnectActivity.this, name,Toast.LENGTH_SHORT);
++//    toast.show();
+     if ("android.intent.action.VIEW".equals(intent.getAction())
+         && !commandLineRun) {
+       boolean loopback = intent.getBooleanExtra(
+@@ -225,10 +224,10 @@
+   @Override
+   public void onResume() {
+     super.onResume();
+-    String room = sharedPref.getString(keyprefRoom, "");
+-    Intent intent = getIntent();
++    //String room = sharedPref.getString(keyprefRoom, "");
++    //Intent intent = getIntent();
+     //intent.getExtras("name");
+-    roomEditText.setText(intent.getStringExtra("name"));
++    //roomEditText.setText(intent.getStringExtra("name"));
+     roomList = new ArrayList<String>();
+     String roomListJson = sharedPref.getString(keyprefRoomList, null);
+     if (roomListJson != null) {

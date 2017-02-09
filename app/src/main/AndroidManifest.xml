@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="org.appspot.apprtc">
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
+
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:name=".my.MyApplication"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.DesignDemo">
+        <activity
+            android:name=".ConnectActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data
+                    android:host="appr.tc"
+                    android:scheme="https"/>
+                <data
+                    android:host="appr.tc"
+                    android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/settings_name">
+        </activity>
+        <activity
+            android:name=".CallActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="fullUser"
+            android:theme="@style/CallActivityTheme">
+        </activity>
+        <activity
+            android:name=".my.MainActivity"
+            android:theme="@style/Theme.DesignDemo">
+
+            <!--
+            android:theme="@style/Theme.AppCompat"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            -->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+            <!-- <category android:name="android.intent.category.DEFAULT"/> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".my.CheeseDetailActivity"
+            android:parentActivityName=".my.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".my.MainActivity"/>
+        </activity>
+        <activity android:name=".my.FriendDetailActivity">
+        </activity>
+
+        <service
+            android:name=".my.ClientSocketService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+
+        <activity
+            android:name=".my.ChatRoomActivity"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
+            android:name=".my.AddFriendsActivity"
+            android:label="@string/title_activity_add_friends"
+            android:theme="@style/Theme.DesignDemo">
+        </activity>
+        <activity
+            android:name=".my.AddFriendsForEditActivity"
+            android:label="@string/title_activity_add_friends"
+            android:theme="@style/Theme.DesignDemo">
+        </activity>
+        <activity android:name=".my.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".my.JoinActivity">
+        </activity>
+        <activity android:name=".my.PhotoActivity">
+        </activity>
+        <activity
+            android:name=".my.FdActivity"
+            android:screenOrientation="landscape">
+
+            <!-- android:screenOrientation="landscape" -->
+        </activity>
+        <activity android:name=".my.IncomeRTCActivity">
+        </activity>
+    </application>
+
+</manifest>
